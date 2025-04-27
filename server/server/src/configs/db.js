@@ -3,7 +3,7 @@ require('dotenv').config(); // Load environment variables
 
 mongoose.set('strictQuery', true);
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/WorkHive';
+const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
   console.error("❌ MONGODB_URI is not defined in the .env file!");

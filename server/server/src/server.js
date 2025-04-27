@@ -30,9 +30,8 @@ app.use(compression());
 app.use(cors({
     origin: [
         'http://localhost:5173/',  // ✅ Added React Frontend URL
-        'http://localhost:5173',
-        'http://localhost:4173',
-        'https://workhive-one.vercel.app'
+        'https://glittery-blini-119134.netlify.app/',
+        // 'http://localhost:4173',
     ],
     credentials: true
 }));
