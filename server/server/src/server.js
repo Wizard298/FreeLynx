@@ -29,8 +29,8 @@ app.use(compression());
 // ✅ CORS Configuration (Allow Frontend Access)
 app.use(cors({
     origin: [
-        'http://localhost:5173/',  // ✅ Added React Frontend URL
-        'https://glittery-blini-119134.netlify.app/',
+        'http://localhost:5173',  // ✅ Added React Frontend URL
+        'https://glittery-blini-119134.netlify.app',
         // 'http://localhost:4173',
     ],
     credentials: true
