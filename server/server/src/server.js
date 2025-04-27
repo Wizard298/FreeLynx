@@ -33,8 +33,14 @@ app.use(cors({
         'https://glittery-blini-119134.netlify.app',
         // 'http://localhost:4173',
     ],
-    credentials: true
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
 }));
+
+// Add this right after CORS setup to handle preflight requests
+app.options('*', cors()); // Enable preflight for all routes
+
 
 // ✅ API Routes
 app.use('/api/auth', authRoute);
