@@ -18,9 +18,10 @@ import {
   Pay,
   Success,
   NotFound,
+  Browse,
 } from "./pages";
 // import "./App.scss";
-import Browse from "./pages/browse/Browse";
+// import Browse from "./pages/Browse/Browse";
 
 const paths = [
   { path: "/", element: <Home /> },
