@@ -1,2 +1,2 @@
-# Freelancify
+# FreeLynx
 Freelancing Website
