@@ -39,9 +39,14 @@ const Gigs = () => {
     },
   });
 
+  useEffect(() => {
+    refetch();
+  }, [sortBy, search]);
+
   const handleSortBy = (type) => {
     setSortBy(type);
     setOpenMenu(false);
+    refetch();
   };
 
   const handlePriceFilter = () => {
@@ -56,17 +61,19 @@ const Gigs = () => {
     <div className="gigs">
       <div className="container">
         <span className="breadcrumbs">
-          Workhive {">"} {capitalizedCategory}
+          FreeLynx {">"} {capitalizedCategory}
         </span>
         <h1>{capitalizedCategory}</h1>
         <p>
-          Explore the boundaries of art and technology with Workhive's{" "}
+          Explore the boundaries of art and technology with FreeLynx's{" "}
           {capitalizedCategory} artists
         </p>
 
         <div className="menu">
           <div className="left">
-            <span><b>Budget</b> </span>
+            <span>
+              <b>Budget</b>{" "}
+            </span>
             <input ref={minRef} type="number" placeholder="Min" />
             <input ref={maxRef} type="number" placeholder="Max" />
             <button onClick={handlePriceFilter}>Apply</button>
@@ -95,7 +102,7 @@ const Gigs = () => {
             )}
           </div>
         </div>
-        
+
         <br />
         <div className="cards">
           {isLoading ? (

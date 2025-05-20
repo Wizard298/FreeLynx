@@ -113,7 +113,7 @@ const Navbar = () => {
       <div className="container">
         <div className="logo">
           <Link to="/" className="link">
-            <span className="text">workhive</span>
+            <span className="text">FreeLynx</span>
           </Link>
           <span className="dot">.</span>
         </div>
@@ -123,8 +123,8 @@ const Navbar = () => {
             <Link to="/" className="link">
               Home
             </Link>
-            <Link to="/#workhiveCommunity" className="link" onClick={() => handleScrollTo("workhiveCommunity")}>
-              Workhive Community
+            <Link to="/#freeLynxCommunity" className="link" onClick={() => handleScrollTo("freeLynxCommunity")}>
+              FreeLynx Community
             </Link>
             <span>
               <Link to="/#explores" className="link" onClick={() => handleScrollTo("explores")}>

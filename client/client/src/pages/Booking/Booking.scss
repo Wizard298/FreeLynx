@@ -1,0 +1,250 @@
+/* --- Booking.scss --- */
+
+/* Container for the booking form */
+.booking-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    margin-top: 31px;
+  
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: #2d3748;
+      margin-bottom: 20px;
+      position: relative;
+  
+      &::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #00c9ff 0%, #92fe9d 100%);
+        margin: 8px auto 0;
+        border-radius: 3px;
+      }
+    }
+  
+    .react-datepicker-wrapper {
+        width: 100%;
+        
+        .react-datepicker__input-container {
+          width: 100%;
+          
+          input {
+            width: 92%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: #4a5568;
+            transition: all 0.3s ease;
+            background-color: #f8fafc;
+            
+            &:focus {
+              outline: none;
+              border-color: var(--green-color);
+              box-shadow: 0 0 0 3px rgba(29, 207, 115, 0.2);
+              background-color: #fff;
+            }
+            
+            &::placeholder {
+              color: #a0aec0;
+            }
+          }
+        }
+      }
+
+      button {
+        width: 100%;
+        padding: 0.875rem;
+        margin-top: 1.5rem;
+        background: linear-gradient(135deg, var(--green-color) 0%, #4a90e2 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(29, 207, 115, 0.2);
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(29, 207, 115, 0.3);
+        }
+        
+        &:active {
+          transform: translateY(0);
+        }
+        
+        &:disabled {
+          background: #cbd5e0;
+          cursor: not-allowed;
+          transform: none;
+          box-shadow: none;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+          }
+        }
+      }
+
+
+    /* Styling react-datepicker */
+    .react-datepicker {
+      border: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      border-radius: 12px;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+  
+      .react-datepicker__header {
+        background-color: #ffffff;
+        border-bottom: none;
+        padding-top: 20px;
+        position: relative;
+      }
+  
+      .react-datepicker__current-month {
+        font-weight: 700;
+        font-size: 20px;
+        color: #2d3748;
+        margin-bottom: 12px;
+      }
+  
+      /* Arrows for navigation */
+      .react-datepicker__navigation {
+        top: 20px;
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(90deg, #00c9ff 0%, #92fe9d 100%);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        position: absolute;
+  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        transition: background 0.3s;
+  
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          border: solid #ffffff;
+          border-width: 0 2px 2px 0;
+          padding: 5px;
+          transform: rotate(45deg);
+        }
+  
+        &:hover {
+          background: linear-gradient(90deg, #00b4db 0%, #0083b0 100%);
+        }
+      }
+  
+      .react-datepicker__navigation--previous {
+        left: 10px;
+  
+        &::before {
+          transform: rotate(135deg);
+        }
+      }
+  
+      .react-datepicker__navigation--next {
+        right: 10px;
+  
+        &::before {
+          transform: rotate(-45deg);
+        }
+      }
+  
+      /* Days and Weeks */
+      .react-datepicker__day-name,
+      .react-datepicker__day,
+      .react-datepicker__time-name {
+        font-size: 14px;
+        color: #4a5568;
+        margin: 0.3rem;
+      }
+  
+      .react-datepicker__day {
+        width: 2.5rem;
+        height: 2.5rem;
+        line-height: 2.5rem;
+        border-radius: 50%;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background: #e6fffa;
+          color: #2c7a7b;
+        }
+      }
+  
+      /* Selected day */
+      .react-datepicker__day--selected,
+      .react-datepicker__day--keyboard-selected {
+        background: linear-gradient(90deg, #00c9ff 0%, #92fe9d 100%);
+        color: white;
+        border-radius: 50%;
+      }
+  
+      /* Time list styling */
+      .react-datepicker__time-container {
+        border-left: 1px solid #e2e8f0;
+        width: 120px;
+  
+        .react-datepicker__time {
+          background: #ffffff;
+  
+          .react-datepicker__time-box {
+            width: 100%;
+  
+            ul.react-datepicker__time-list {
+              padding: 10px 0;
+              overflow-y: auto;
+              max-height: 300px;
+  
+              li {
+                padding: 8px 12px;
+                font-size: 14px;
+                color: #4a5568;
+                cursor: pointer;
+                transition: background 0.3s;
+  
+                &:hover {
+                  background: #e6fffa;
+                }
+  
+                &.react-datepicker__time-list-item--selected {
+                  background: linear-gradient(90deg, #00c9ff 0%, #92fe9d 100%);
+                  color: white;
+                  border-radius: 6px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

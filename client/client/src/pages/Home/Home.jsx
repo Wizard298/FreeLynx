@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Featured, Slide, TrustedBy } from "../../components";
 import { CategoryCard, ProjectCard } from "../../components";
@@ -7,19 +7,33 @@ import { cards, projects } from "../../data";
 import "./Home.scss";
 
 const Home = () => {
+  const [isAnimating, setIsAnimating] = useState(false);
   const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    const timer = setTimeout(() => setIsAnimating(true), 100);
+    return () => clearTimeout(timer);
   }, []);
+
   return (
-    <div className="home">
+    <div className={`home ${isAnimating ? 'active' : ''}`}>
       <Featured />
       <TrustedBy />
-      <Slide slidesToShow={5}>
+
+      <div className="slide-section">
+        <Slide slidesToShow={5} arrows={true} dots={true}>
+          {cards.map((card) => (
+            <CategoryCard key={card.id} data={card} />
+          ))}
+        </Slide>
+      </div>
+
+      {/* <Slide slidesToShow={5}>
         {cards.map((card) => (
           <CategoryCard key={card.id} data={card} />
         ))}
-      </Slide>
+      </Slide> */}
 
 
       {/* features */}
@@ -197,11 +211,11 @@ const Home = () => {
       </div>
 
 
-      {/* WorkHive community Component */}
-      <div className="features dark" id="workhiveCommunity">
+      {/* FreeLynx community Component */}
+      <div className="features dark" id="freeLynxCommunity">
         <div className="container">
           <div className="item">
-            <h2>Workhive Community</h2>
+            <h2>FreeLynx Community</h2>
             <h1>Connect, Collaborate & Create Future</h1>
             <p>
               Upgrade to a curated experience packed with tools and benefits,
@@ -227,7 +241,7 @@ const Home = () => {
                 workspace
               </h6>
             </div>
-            <button onClick={()=>{navigate("/"); window.scrollTo(0, 0);}}>Explore WorkHive Community</button>
+            <button onClick={()=>{navigate("/"); window.scrollTo(0, 0);}}>Explore FreeLynx Community</button>
           </div>
           <div className="item">
             <img
@@ -239,11 +253,18 @@ const Home = () => {
       </div>
 
 
-      <Slide slidesToShow={4}>
+      <div className="project-slider">
+        <Slide slidesToShow={4} arrows={true} dots={true}>
+          {projects.map((card) => (
+            <ProjectCard key={card.id} data={card} />
+          ))}
+        </Slide>
+      </div>
+      {/* <Slide slidesToShow={4}>
         {projects.map((card) => (
           <ProjectCard key={card.id} data={card} />
         ))}
-      </Slide>
+      </Slide> */}
     </div>
   );
 };

@@ -19,14 +19,16 @@ import {
   Success,
   NotFound,
   Browse,
+  Booking,
 } from "./pages";
+
 // import "./App.scss";
-// import Browse from "./pages/Browse/Browse";
 
 const paths = [
   { path: "/", element: <Home /> },
   { path: "/gig/:_id", element: <Gig /> },
   { path: "/gigs", element: <Gigs /> },
+  { path: "/booking", element: <Booking/> },
   { path: "/browse", element: <Browse/> },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },

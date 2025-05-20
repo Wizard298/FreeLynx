@@ -67,7 +67,7 @@ const Gig = () => {
         <div className="container">
           <div className="left">
             <span className="breadcrumbs">
-              WorkHive{">"}
+              FreeLynx{">"}
               {data?.category}
             </span>
             <h1>{data?.title}</h1>
@@ -181,7 +181,7 @@ const Gig = () => {
                     <span className="desc">
                       {data?.userID.country}
                       <span className="flag">
-                        <img src={country.normal} alt="" />
+                        <img src={country.normal} alt="Error" />
                       </span>
                     </span>
                   </div>
@@ -198,8 +198,10 @@ const Gig = () => {
                     <span className="desc">4 hours</span>
                   </div>
                   <div className="item">
-                    <span className="title">Last delivery</span>
-                    <span className="desc">1 day</span>
+                    {/* <span className="title">Last delivery</span>
+                    <span className="desc">1 day</span> */}
+                    <span className="title">Delivery Time</span>
+                    <span className="desc">{data.deliveryTime} days</span>
                   </div>
                   <div className="item">
                     <span className="title">Languages</span>
@@ -207,11 +209,15 @@ const Gig = () => {
                   </div>
                 </div>
                 <hr />
-                <p>{data.userID.description}</p>
+                {/* <p>{data.userID.description}</p> */}
+                <p>Description: {data.description}</p>
               </div>
             </div>
+            
+            <br />
             <Reviews gigID={_id} />
           </div>
+
           <div className="right">
             <div className="price">
               <h3>{data?.shortTitle}</h3>
