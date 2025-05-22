@@ -22,7 +22,13 @@ const Pay = () => {
         setClientSecret(data.clientSecret);
         setError(null);
       } catch({ response }) {
-        setError(response?.data?.message || 'Failed to initialize payment');
+        if (response?.status === 401) {
+          // Handle unauthorized (token expired, not logged in, etc.)
+          setError('Please login again to complete your purchase');
+          // Optionally redirect to login
+        } else {
+          setError(response?.data?.message || 'Failed to initialize payment');
+        }
         console.error(response);
       } finally {
         setIsLoading(false);

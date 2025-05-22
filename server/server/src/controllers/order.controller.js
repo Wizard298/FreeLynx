@@ -15,6 +15,7 @@ const getOrders = async (request, response) => {
     }
 }
 
+
 const paymentIntent = async (request, response) => {
     const { _id } = request.params;
 
@@ -54,6 +55,7 @@ const paymentIntent = async (request, response) => {
     }
 }
 
+
 const updatePaymentStatus = async (request, response) => {
     const { payment_intent } = request.body;
 
@@ -80,6 +82,7 @@ const updatePaymentStatus = async (request, response) => {
         })
     }
 }
+
 
 module.exports = {
     getOrders,

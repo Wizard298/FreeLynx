@@ -7,7 +7,7 @@ const userMiddleware = (request, response, next) => {
     
     try {
         if(!token) {
-            throw CustomException('Unauthorized access!', 400);
+            throw CustomException('Unauthorized access! Please login', 400);
         }
         
         const verification = jwt.verify(token, process.env.JWT_SECRET);

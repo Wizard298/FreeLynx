@@ -54,7 +54,7 @@ app.use('/api/reviews', reviewRoute);
 
 // ✅ Root Route
 app.get('/', (req, res) => {
-    res.send('Hello, Topper! Backend is running successfully.');
+    res.send('<h1> Hello, Topper! Backend is running successfully. </h1>');
 });
 
 // ✅ Get IP Route
@@ -70,7 +70,8 @@ app.listen(PORT, async () => {
     try {
         await connect();
         console.log(`🚀 Server running at: http://localhost:${PORT}`);
-    } catch (error) {
+    } 
+    catch (error) {
         console.log(`❌ Error: ${error.message}`);
     }
 });
